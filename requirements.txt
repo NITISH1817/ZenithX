@@ -1,0 +1,9 @@
+easyocr
+sentence-transformers
+faiss-cpu
+fastapi
+uvicorn
+numpy
+pandas
+pillow
+opencv-python
