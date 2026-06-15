@@ -62,3 +62,56 @@ Day 1:
 - Initial project planning completed
 
 More updates coming.
+### Day 2 Completed
+
+- Created dataset folders
+- Collected screenshot samples for testing
+- Organized screenshots into categories
+- Added payment screenshots
+- Added travel screenshots
+- Added coding screenshots
+- Added notes screenshots
+- Added shopping screenshots
+- Created metadata.csv for dataset mapping
+- Planned OCR implementation pipeline
+
+---
+
+## Dataset Categories
+
+Current dataset contains screenshots from:
+
+- Payment Receipts
+- Travel Tickets
+- Coding Errors
+- Notes and Study Materials
+- Shopping Receipts
+
+Total Dataset Size: 25+ screenshots
+
+---
+
+## Next Development Phase
+
+Day 3 Plan:
+
+- Install EasyOCR
+- Test OCR on screenshots
+- Extract text from screenshots
+- Save OCR output
+- Begin first AI pipeline implementation
+
+---
+
+## Future Scope
+
+- Search screenshots using natural language
+- Search payment receipts instantly
+- Find coding error screenshots automatically
+- Expand into personal digital memory search system
+
+---
+
+## Project Vision
+
+We are building an AI-powered system that helps users retrieve important information trapped inside screenshots by understanding semantic meaning instead of relying on manual scrolling.
