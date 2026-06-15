@@ -62,7 +62,7 @@ Day 1:
 - Initial project planning completed
 
 More updates coming.
-### Day 2 Completed
+### Day 2
 
 - Created dataset folders
 - Collected screenshot samples for testing
@@ -74,41 +74,6 @@ More updates coming.
 - Added shopping screenshots
 - Created metadata.csv for dataset mapping
 - Planned OCR implementation pipeline
-
----
-
-## Dataset Categories
-
-Current dataset contains screenshots from:
-
-- Payment Receipts
-- Travel Tickets
-- Coding Errors
-- Notes and Study Materials
-- Shopping Receipts
-
-Total Dataset Size: 25+ screenshots
-
----
-
-## Next Development Phase
-
-Day 3 Plan:
-
-- Install EasyOCR
-- Test OCR on screenshots
-- Extract text from screenshots
-- Save OCR output
-- Begin first AI pipeline implementation
-
----
-
-## Future Scope
-
-- Search screenshots using natural language
-- Search payment receipts instantly
-- Find coding error screenshots automatically
-- Expand into personal digital memory search system
 
 ---
 
