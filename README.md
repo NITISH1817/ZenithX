@@ -75,6 +75,14 @@ More updates coming.
 - Created metadata.csv for dataset mapping
 - Planned OCR implementation pipeline
 
+### Day 3 Completed
+
+- Installed EasyOCR
+- Extracted text from screenshots
+- Tested OCR on dataset
+- Documented OCR results
+- Created OCR output structure
+
 ---
 
 ## Project Vision
