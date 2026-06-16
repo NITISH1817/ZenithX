@@ -2,7 +2,7 @@ import easyocr
 
 reader = easyocr.Reader(['en'])
 
-result = reader.readtext('dataset/payments/p1.png')
+result = reader.readtext('dataset/payments/p2.png')
 
 print("\nExtracted Text:\n")
 
