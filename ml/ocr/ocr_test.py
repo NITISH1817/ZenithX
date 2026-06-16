@@ -1,10 +1,10 @@
 import easyocr
+import json
 
 reader = easyocr.Reader(['en'])
 
-result = reader.readtext('dataset/payments/p2.png')
+result = reader.readtext('dataset/payments/p1.png')
 
-print("\nExtracted Text:\n")
+text = " ".join([item[1] for item in result])
 
-for item in result:
-    print(item[1])
+print(text)
