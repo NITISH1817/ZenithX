@@ -4,7 +4,15 @@ def clean_text(text):
 
     return text
 
+ocr_text = """
+Transaction Successful
+Amazon Pay
+500
+ICICI Bank
+"""
 
-sample = "   PAYING    SWETHA      MOBILES   "
+print("Original Text:")
+print(ocr_text)
 
-print(clean_text(sample))
+print("\nCleaned Text:")
+print(clean_text(ocr_text))
