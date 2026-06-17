@@ -85,6 +85,14 @@ More updates coming.
 
 ---
 
+### Day 4 Completed
+
+- Created text preprocessing module
+- Implemented lowercase normalization
+- Implemented whitespace cleanup
+- Tested preprocessing on OCR output
+- Documented preprocessing workflow
+
 ## Project Vision
 
 We are building an AI-powered system that helps users retrieve important information trapped inside screenshots by understanding semantic meaning instead of relying on manual scrolling.
