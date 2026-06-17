@@ -83,8 +83,6 @@ More updates coming.
 - Documented OCR results
 - Created OCR output structure
 
----
-
 ### Day 4 Completed
 
 - Created text preprocessing module
@@ -92,6 +90,7 @@ More updates coming.
 - Implemented whitespace cleanup
 - Tested preprocessing on OCR output
 - Documented preprocessing workflow
+ ---
 
 ## Project Vision
 
