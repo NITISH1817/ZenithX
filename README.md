@@ -90,6 +90,15 @@ More updates coming.
 - Implemented whitespace cleanup
 - Tested preprocessing on OCR output
 - Documented preprocessing workflow
+
+### Day 5 Completed
+
+- Installed Sentence Transformers
+- Generated semantic embeddings
+- Tested similarity scoring
+- Created embeddings documentation
+- Began semantic search foundation
+
  ---
 
 ## Project Vision
