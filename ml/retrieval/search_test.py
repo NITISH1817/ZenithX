@@ -1,4 +1,6 @@
 from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -12,4 +14,13 @@ screenshots = [
 
 embeddings = model.encode(screenshots)
 
-print("Total embeddings:", len(embeddings))
+query = "amazon payment"
+
+query_embedding = model.encode([query])
+
+scores = cosine_similarity(query_embedding, embeddings)
+
+best_match = np.argmax(scores)
+
+print("Query:", query)
+print("Best Match:", screenshots[best_match])
