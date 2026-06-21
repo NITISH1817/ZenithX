@@ -1,1 +1,12 @@
 
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "SnapMind AI backend running"}
+
+@app.get("/search")
+def search():
+    return {"query": "amazon payment", "result": "p1.png"}
