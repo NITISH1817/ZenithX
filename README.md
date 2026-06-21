@@ -129,3 +129,19 @@ Upcoming Work:
 ## Project Vision
 
 We are building an AI-powered system that helps users retrieve important information trapped inside screenshots by understanding semantic meaning instead of relying on manual scrolling.
+
+### Day 7 Completed
+
+- Created integrated processing pipeline
+- Connected OCR with preprocessing module
+- Connected preprocessing with embedding generation
+- Built end-to-end screenshot processing workflow
+- Tested complete pipeline using sample screenshots
+- Documented system pipeline
+### Day 8 Completed
+
+- Created FastAPI backend service
+- Built backend test endpoint
+- Created search API endpoint
+- Connected backend structure for retrieval system
+- Documented API endpoints
