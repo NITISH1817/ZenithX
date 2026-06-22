@@ -107,28 +107,7 @@ More updates coming.
 - Tested multiple natural language queries
 - Documented retrieval results
 
-## Current Status
 
-Completed Modules:
-
-- OCR Module ✅
-- Text Preprocessing Module ✅
-- Embedding Generation Module ✅
-- Semantic Retrieval Module ✅
-- Integrated Pipeline ✅
-
-Upcoming Work:
-
-- User Interface
-- Search Interface
-- Result Display
-- Final Integration
-
- ---
-
-## Project Vision
-
-We are building an AI-powered system that helps users retrieve important information trapped inside screenshots by understanding semantic meaning instead of relying on manual scrolling.
 
 ### Day 7 Completed
 
@@ -138,6 +117,7 @@ We are building an AI-powered system that helps users retrieve important informa
 - Built end-to-end screenshot processing workflow
 - Tested complete pipeline using sample screenshots
 - Documented system pipeline
+  
 ### Day 8 Completed
 
 - Created FastAPI backend service
@@ -145,3 +125,8 @@ We are building an AI-powered system that helps users retrieve important informa
 - Created search API endpoint
 - Connected backend structure for retrieval system
 - Documented API endpoints
+
+ ---
+- ## Project Vision
+
+We are building an AI-powered system that helps users retrieve important information trapped inside screenshots by understanding semantic meaning instead of relying on manual scrolling.
