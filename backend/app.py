@@ -1,8 +1,8 @@
-
+from sentence_transformers import SentenceTransformer
 from fastapi import FastAPI
 
 app = FastAPI()
-
+model = SentenceTransformer('all-MiniLM-L6-v2')
 @app.get("/")
 def home():
     return {"message": "SnapMind AI backend running"}
