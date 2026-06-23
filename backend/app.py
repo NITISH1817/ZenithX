@@ -32,7 +32,7 @@ def home():
 
 @app.get("/search")
 def search():
-    query = "amazon payment"
+    query = "train booking"
 
     result = semantic_search(query)
 
