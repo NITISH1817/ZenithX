@@ -31,9 +31,7 @@ def home():
     return {"message": "SnapMind AI backend running"}
 
 @app.get("/search")
-def search():
-    query = "train booking"
-
+def search(query: str):
     result = semantic_search(query)
 
     return {
