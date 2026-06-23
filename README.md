@@ -134,6 +134,16 @@ More updates coming.
 - Removed hardcoded search response
 - Tested multiple search queries
 - Documented backend search testing
+
+### Day 10 Completed
+
+- Added dynamic search query input
+- Tested multiple natural language searches
+- Added similarity score output
+- Improved search API usability
+- Documented API usage
+
+
  ---
 - ## Project Vision
 
