@@ -126,6 +126,14 @@ More updates coming.
 - Connected backend structure for retrieval system
 - Documented API endpoints
 
+
+### Day 9 Completed
+
+- Connected backend API with semantic retrieval engine
+- Implemented dynamic semantic search
+- Removed hardcoded search response
+- Tested multiple search queries
+- Documented backend search testing
  ---
 - ## Project Vision
 
