@@ -1,41 +1,51 @@
 async function searchScreenshot() {
+    const query = document.getElementById("query").value.trim();
+
+    if (query === "") {
+        document.getElementById("result").innerHTML =
+            "<p style='color:red;'>Please enter a search query.</p>";
+        return;
+    }
+
     try {
-        // Get the user's search query
-        const query = document.getElementById("query").value;
-
-        // Check if query is empty
-        if (query.trim() === "") {
-            document.getElementById("result").innerHTML =
-                "<p style='color:red;'>Please enter a search query.</p>";
-            return;
-        }
-
-        // Send request to FastAPI backend
         const response = await fetch(
             `https://super-acorn-69w9vj4596rqc5qvx-8000.app.github.dev/search?query=${encodeURIComponent(query)}`
         );
 
         if (!response.ok) {
-            throw new Error("Failed to fetch data from backend");
+            throw new Error("Server Error");
         }
 
-        // Convert response to JSON
         const data = await response.json();
 
-        // Display result
+        // No match
+        if (!data.found) {
+            document.getElementById("result").innerHTML = `
+                <h2>No Matching Screenshot Found</h2>
+                <p>${data.message}</p>
+            `;
+            return;
+        }
+
+        // Match found
+        const imageUrl =
+            `https://super-acorn-69w9vj4596rqc5qvx-8000.app.github.dev/dataset/${data.image}?t=${Date.now()}`;
+
         document.getElementById("result").innerHTML = `
             <h2>Best Match</h2>
 
-            <p><strong>Text:</strong> ${data.text}</p>
+            <p><strong>OCR Text:</strong></p>
+            <p>${data.text}</p>
 
             <img
-                src="https://super-acorn-69w9vj4596rqc5qvx-8000.app.github.dev/dataset/${data.image}"
+                src="${imageUrl}"
                 alt="Matched Screenshot"
                 width="400"
-                style="border:1px solid #ccc;border-radius:8px;margin-top:10px;"
+                style="margin-top:15px;border:2px solid #444;border-radius:10px;"
+                onerror="this.style.display='none';"
             >
 
-            <p><strong>Score:</strong> ${data.score}</p>
+            <p><strong>Similarity Score:</strong> ${data.score}</p>
         `;
 
     } catch (error) {
@@ -43,7 +53,7 @@ async function searchScreenshot() {
 
         document.getElementById("result").innerHTML = `
             <p style="color:red;">
-                Error: ${error.message}
+                Error connecting to backend.
             </p>
         `;
     }
