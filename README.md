@@ -1,9 +1,9 @@
 # SnapMind AI
 
 ## Team Members
-- Nitish Priyan R.S
-- Ragavarthini.R
-- Kavya.N
+- Nitish Priyan R S
+- Ragavarthini R
+- Kavya N
 
 ## Problem Statement
 
