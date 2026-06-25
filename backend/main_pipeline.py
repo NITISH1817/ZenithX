@@ -1,28 +1,61 @@
+import os
+import json
 import easyocr
-from sentence_transformers import SentenceTransformer
-model = SentenceTransformer('all-MiniLM-L6-v2')
+
+reader = easyocr.Reader(['en'], gpu=False)
+
+DATASET_PATH = "dataset"
+
+folders = [
+    "payments",
+    "coding",
+    "notes",
+    "shopping",
+    "travel"
+]
+
+
 def clean_text(text):
     text = text.lower()
+
+    # Common OCR fixes
+    text = text.replace("₹", "")
+    text = text.replace("?", "")
+    text = text.replace("|", "1")
+
+    # Fix 50o -> 500
+    text = re.sub(r'(?<=\d)o(?=\d)', '0', text)
+
     text = " ".join(text.split())
+
     return text
 
-reader = easyocr.Reader(['en'])
+ocr_data = {}
 
-result = reader.readtext('dataset/payments/p1.png')
+for folder in folders:
 
-raw_text = ""
+    folder_path = os.path.join(DATASET_PATH, folder)
 
-for item in result:
-    raw_text += item[1] + " "
+    for filename in os.listdir(folder_path):
 
-cleaned_text = clean_text(raw_text)
-embedding = model.encode(cleaned_text)
-print("Raw OCR Text:")
-print(raw_text)
+        if filename.endswith(".png"):
 
-print("\nCleaned Text:")
-print(cleaned_text)
+            image_path = os.path.join(folder_path, filename)
 
-print("\nEmbedding Length:")
-print(len(embedding))
-print("\nSearch Ready: True")
+            print("Processing:", image_path)
+
+            result = reader.readtext(
+                image_path,
+                detail=0,
+                paragraph=True
+            )
+
+            text = clean_text(" ".join(result))
+
+            ocr_data[f"{folder}/{filename}"] = text
+
+with open("dataset/ocr_output.json", "w", encoding="utf-8") as f:
+    json.dump(ocr_data, f, indent=4)
+
+print("Done")
+print("Images:", len(ocr_data))
