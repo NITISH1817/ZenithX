@@ -150,7 +150,67 @@ More updates coming.
 - Added UI styling
 - Connected frontend with backend API
 - Tested end-to-end search workflow
+# Day 12 – Semantic Search Integration
 
+## Overview
+
+On Day 12, the focus was on integrating semantic search into SnapMind AI by connecting OCR-generated text with the FastAPI backend. The goal was to enable users to search screenshots using natural language queries instead of manually browsing through folders.
+
+---
+
+## Work Completed
+
+- Integrated OCR output (`ocr_output.json`) into the backend.
+- Loaded OCR text dynamically instead of using hardcoded screenshot data.
+- Generated text embeddings using the `all-MiniLM-L6-v2` Sentence Transformer model.
+- Implemented semantic search using cosine similarity.
+- Added a similarity threshold to filter out irrelevant search results.
+- Configured FastAPI to serve screenshot images using `StaticFiles`.
+- Enabled CORS to allow communication between the frontend and backend.
+- Connected the frontend search interface with the FastAPI search API.
+- Added debugging logs to display the search query, best match, and similarity score.
+- Tested search functionality across multiple screenshot categories such as Payments, Shopping, Coding, Notes, and Travel.
+
+---
+
+## Technologies Used
+
+- Python
+- FastAPI
+- EasyOCR
+- Sentence Transformers
+- Scikit-learn
+- NumPy
+- HTML
+- CSS
+- JavaScript
+
+---
+
+## Files Updated
+
+- `backend/app.py`
+- `backend/main_pipeline.py`
+- `frontend/script.js`
+- `dataset/ocr_output.json`
+
+---
+
+## Outcome
+
+- Successfully integrated semantic search with the OCR dataset.
+- Enabled AI-based screenshot retrieval through a REST API.
+- Improved backend architecture by dynamically loading OCR data.
+- Identified OCR-related limitations and planned future improvements using hybrid keyword and semantic search.
+
+---
+
+## Future Improvements
+
+- Improve OCR preprocessing for better text accuracy.
+- Implement hybrid keyword and semantic search.
+- Add image embeddings using CLIP.
+- Enhance search accuracy for numeric queries.
  ---
 - ## Project Vision
 

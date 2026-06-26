@@ -1,15 +1,40 @@
+let searchCounter = 0;
+const API_URL = "https://super-acorn-69w9vj4596rqc5qvx-8000.app.github.dev";
+
+
 async function searchScreenshot() {
+
+
     const query = document.getElementById("query").value.trim();
+    const resultDiv = document.getElementById("result");
+    searchCounter++;
+
+const counter = document.getElementById("searchCount");
+
+if (counter) {
+    counter.innerText = searchCounter;
+}
 
     if (query === "") {
-        document.getElementById("result").innerHTML =
-            "<p style='color:red;'>Please enter a search query.</p>";
+
+        resultDiv.innerHTML = `
+            <div class="result-card">
+                <h2>⚠️ Please enter a search query</h2>
+            </div>
+        `;
         return;
     }
 
+    resultDiv.innerHTML = `
+        <div class="result-card">
+            <h2>🔍 Searching...</h2>
+        </div>
+    `;
+
     try {
+
         const response = await fetch(
-            `https://super-acorn-69w9vj4596rqc5qvx-8000.app.github.dev/search?query=${encodeURIComponent(query)}`
+            `${API_URL}/search?query=${encodeURIComponent(query)}`
         );
 
         if (!response.ok) {
@@ -18,43 +43,74 @@ async function searchScreenshot() {
 
         const data = await response.json();
 
-        // No match
         if (!data.found) {
-            document.getElementById("result").innerHTML = `
-                <h2>No Matching Screenshot Found</h2>
-                <p>${data.message}</p>
+
+            resultDiv.innerHTML = `
+                <div class="result-card">
+                    <h2>❌ No Matching Screenshot Found</h2>
+                    <p>${data.message}</p>
+                </div>
             `;
             return;
         }
 
-        // Match found
         const imageUrl =
-            `https://super-acorn-69w9vj4596rqc5qvx-8000.app.github.dev/dataset/${data.image}?t=${Date.now()}`;
+            `${API_URL}/dataset/${data.image}?t=${Date.now()}`;
 
-        document.getElementById("result").innerHTML = `
-            <h2>Best Match</h2>
+        resultDiv.innerHTML = `
+            <div class="result-card">
 
-            <p><strong>OCR Text:</strong></p>
-            <p>${data.text}</p>
+                <h2>✨ Best Match Found</h2>
 
-            <img
-                src="${imageUrl}"
-                alt="Matched Screenshot"
-                width="400"
-                style="margin-top:15px;border:2px solid #444;border-radius:10px;"
-                onerror="this.style.display='none';"
-            >
+                <img
+                    src="${imageUrl}"
+                    alt="Matched Screenshot"
+                >
 
-            <p><strong>Similarity Score:</strong> ${data.score}</p>
+                <div class="score">
+                    ⭐ Similarity Score:
+                    <strong>${data.score}</strong>
+                </div>
+
+            </div>
         `;
 
     } catch (error) {
+
         console.error(error);
 
-        document.getElementById("result").innerHTML = `
-            <p style="color:red;">
-                Error connecting to backend.
-            </p>
+        resultDiv.innerHTML = `
+            <div class="result-card">
+                <h2>⚠️ Connection Error</h2>
+                <p>Unable to connect to the backend.</p>
+            </div>
         `;
     }
 }
+
+/* Search when Enter is pressed */
+
+document
+    .getElementById("query")
+    .addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+            searchScreenshot();
+        }
+
+    });
+
+/* Smooth fade-in animation on page load */
+
+window.addEventListener("load", () => {
+
+    document.querySelector(".glass-card").style.opacity = "0";
+    document.querySelector(".glass-card").style.transform = "translateY(40px)";
+
+    setTimeout(() => {
+        document.querySelector(".glass-card").style.transition = "all .8s ease";
+        document.querySelector(".glass-card").style.opacity = "1";
+        document.querySelector(".glass-card").style.transform = "translateY(0)";
+    }, 100);
+
+});

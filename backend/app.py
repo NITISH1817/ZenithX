@@ -1,5 +1,4 @@
 import json
-import re
 import numpy as np
 
 from fastapi import FastAPI
@@ -11,8 +10,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI()
 
-# ---------------- CORS ----------------
-
+# -----------------------------
+# Enable CORS
+# -----------------------------
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -21,93 +21,68 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ------------- Static Images -------------
-
+# -----------------------------
+# Serve Images
+# -----------------------------
 app.mount("/dataset", StaticFiles(directory="dataset"), name="dataset")
 
-# ------------ Load Model ------------
-
-print("Loading model...")
+# -----------------------------
+# Load Model
+# -----------------------------
+print("Loading Sentence Transformer...")
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
-# ------------ Load OCR ------------
-
+# -----------------------------
+# Load OCR Data
+# -----------------------------
 with open("dataset/ocr_output.json", "r", encoding="utf-8") as f:
     ocr_data = json.load(f)
 
 screenshots = []
 
-for image, text in ocr_data.items():
+for image_path, text in ocr_data.items():
     screenshots.append({
-        "image": image,
+        "image": image_path,
         "text": text.lower()
     })
 
-texts = [x["text"] for x in screenshots]
+texts = [item["text"] for item in screenshots]
+
+print("Generating embeddings...")
 embeddings = model.encode(texts)
 
-print("Loaded", len(screenshots), "screenshots")
+print(f"Loaded {len(screenshots)} screenshots")
 
-
-# ------------ Search ------------
-
-def semantic_search(query, threshold=0.45):
+# -----------------------------
+# Search Function
+# -----------------------------
+def semantic_search(query, threshold=0.40):
 
     query = query.lower().strip()
 
-    # ---------- Exact Match ----------
+    # Exact keyword search
     for item in screenshots:
         if query in item["text"]:
-            print("Exact Match")
+            print("Exact Match Found")
             return (
                 item["image"],
                 item["text"],
                 1.0
             )
 
-    # ---------- Token Match ----------
-    words = re.findall(r"\w+", query)
-
-    best_keyword = None
-    best_count = 0
-
-    for item in screenshots:
-
-        count = 0
-
-        for word in words:
-            if word in item["text"]:
-                count += 1
-
-        if count > best_count:
-            best_count = count
-            best_keyword = item
-
-    if best_keyword is not None and best_count > 0:
-
-        score = best_count / len(words)
-
-        return (
-            best_keyword["image"],
-            best_keyword["text"],
-            score
-        )
-
-    # ---------- Semantic Search ----------
-
+    # Semantic Search
     query_embedding = model.encode([query])
 
     scores = cosine_similarity(query_embedding, embeddings)
 
     best_index = np.argmax(scores)
-
     best_score = float(scores[0][best_index])
 
-    print("\n==============================")
+    print("\n========== DEBUG ==========")
     print("Query :", query)
     print("Best Image :", screenshots[best_index]["image"])
     print("Score :", best_score)
-    print("==============================\n")
+    print("===========================\n")
 
     if best_score < threshold:
         return None
@@ -118,16 +93,18 @@ def semantic_search(query, threshold=0.45):
         best_score
     )
 
-
-# ------------ Routes ------------
-
+# -----------------------------
+# Home
+# -----------------------------
 @app.get("/")
 def home():
     return {
         "message": "SnapMind AI Backend Running"
     }
 
-
+# -----------------------------
+# Search API
+# -----------------------------
 @app.get("/search")
 def search(query: str):
 

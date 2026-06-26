@@ -1,22 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SnapMind AI</title>
+
+    <link rel="icon" href="favicon.ico">
+
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body>
 
-<h1>SnapMind AI</h1>
+<body class="theme1">
 
-<input type="text" id="query" placeholder="Search screenshots">
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+    </div>
 
-<button onclick="searchScreenshot()">
-    Search
-</button>
+    <div class="container">
 
-<div id="result"></div>
+        <div class="glass-card">
 
-<script src="script.js"></script>
+            <!-- Theme Button -->
+            <div class="theme-toggle">
+                <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h1>SnapMind AI</h1>
+            </div>
+
+            <p class="subtitle">
+                AI Powered Semantic Screenshot Search Engine
+            </p>
+
+            <!-- Search -->
+            <div class="search-box">
+
+                <input
+                    id="query"
+                    type="text"
+                    placeholder="Search screenshots like 'train ticket', 'amazon', 'python'...">
+
+                <button onclick="searchScreenshot()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search
+                </button>
+
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats">
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-images"></i>
+                    <h2 id="totalShots">126</h2>
+                    <p>Screenshots</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-brain"></i>
+                    <h2>AI</h2>
+                    <p>Semantic Search</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h2>&lt;1s</h2>
+                    <p>Response</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <h2 id="searchCount">0</h2>
+                    <p>Searches</p>
+                </div>
+
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Tech Stack -->
+            <div class="tech-stack">
+                <span>EasyOCR</span>
+                <span>FastAPI</span>
+                <span>Sentence Transformers</span>
+            </div>
+
+        </div>
+
+        <!-- Search Result -->
+        <div id="result"></div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Powered by <strong>EasyOCR</strong> •
+            <strong>Sentence Transformers</strong> •
+            <strong>FastAPI</strong>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
