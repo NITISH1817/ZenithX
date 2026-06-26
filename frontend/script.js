@@ -1,19 +1,19 @@
 let searchCounter = 0;
-const API_URL = "https://super-acorn-69w9vj4596rqc5qvx-8000.app.github.dev";
 
+const API_URL = "https://super-acorn-69w9vj4596rqc5qvx-8000.app.github.dev";
 
 async function searchScreenshot() {
 
-
     const query = document.getElementById("query").value.trim();
     const resultDiv = document.getElementById("result");
+
     searchCounter++;
 
-const counter = document.getElementById("searchCount");
+    const counter = document.getElementById("searchCount");
 
-if (counter) {
-    counter.innerText = searchCounter;
-}
+    if (counter) {
+        counter.innerText = searchCounter;
+    }
 
     if (query === "") {
 
@@ -22,12 +22,25 @@ if (counter) {
                 <h2>⚠️ Please enter a search query</h2>
             </div>
         `;
+
+        resultDiv.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
         return;
     }
 
+    // Loading UI
     resultDiv.innerHTML = `
         <div class="result-card">
-            <h2>🔍 Searching...</h2>
+
+            <div class="loader"></div>
+
+            <p class="loading-text">
+                Searching screenshots...
+            </p>
+
         </div>
     `;
 
@@ -48,14 +61,23 @@ if (counter) {
             resultDiv.innerHTML = `
                 <div class="result-card">
                     <h2>❌ No Matching Screenshot Found</h2>
+
                     <p>${data.message}</p>
                 </div>
             `;
+
+            resultDiv.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
             return;
         }
 
         const imageUrl =
             `${API_URL}/dataset/${data.image}?t=${Date.now()}`;
+
+        const percentage = parseFloat(data.score) * 100;
 
         resultDiv.innerHTML = `
             <div class="result-card">
@@ -69,22 +91,41 @@ if (counter) {
 
                 <div class="score">
                     ⭐ Similarity Score:
-                    <strong>${data.score}</strong>
+                    <strong>${percentage.toFixed(2)}%</strong>
+                </div>
+
+                <div class="progress">
+                    <div style="width:${percentage}%"></div>
                 </div>
 
             </div>
         `;
 
-    } catch (error) {
+        // Automatically scroll to the screenshot
+        resultDiv.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+    catch (error) {
 
         console.error(error);
 
         resultDiv.innerHTML = `
             <div class="result-card">
+
                 <h2>⚠️ Connection Error</h2>
+
                 <p>Unable to connect to the backend.</p>
+
             </div>
         `;
+
+        resultDiv.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     }
 }
 
@@ -100,17 +141,27 @@ document
 
     });
 
-/* Smooth fade-in animation on page load */
+/* Smooth page load animation */
 
 window.addEventListener("load", () => {
 
-    document.querySelector(".glass-card").style.opacity = "0";
-    document.querySelector(".glass-card").style.transform = "translateY(40px)";
+    const card = document.querySelector(".glass-card");
 
-    setTimeout(() => {
-        document.querySelector(".glass-card").style.transition = "all .8s ease";
-        document.querySelector(".glass-card").style.opacity = "1";
-        document.querySelector(".glass-card").style.transform = "translateY(0)";
-    }, 100);
+    if (card) {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(40px)";
+
+        setTimeout(() => {
+
+            card.style.transition = "all .8s ease";
+
+            card.style.opacity = "1";
+
+            card.style.transform = "translateY(0)";
+
+        }, 100);
+
+    }
 
 });
