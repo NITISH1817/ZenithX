@@ -1,217 +1,523 @@
-# SnapMind AI
+Yes. Since your project has evolved beyond the initial idea, your README should reflect the actual implementation rather than the original plan. Here's a polished version you can use.
 
-## Team Members
-- Nitish Priyan R S
-- Ragavarthini R
-- Kavya N
+📸 SnapMind AI
+Search Memories, Not Filenames
 
-## Problem Statement
+SnapMind AI is an AI-powered semantic screenshot search engine that enables users to retrieve screenshots using natural language. Instead of searching by filename or date, SnapMind AI understands the content inside screenshots using OCR and semantic similarity.
 
-Modern smartphone users store thousands of screenshots containing important information such as payment receipts, tickets, coding errors, notes, booking confirmations, and documents.
+👥 Team Members
+Nitish Priyan R S
 
-Current gallery applications organize screenshots only by date and filename, forcing users to manually scroll through hundreds of images when searching for important information.
+Ragavarthini R
+
+Kavya N
+
+📖 Problem Statement
+Modern smartphone users store hundreds or even thousands of screenshots containing valuable information such as:
+
+Payment receipts
+
+Train and flight tickets
+
+Coding errors
+
+Class notes
+
+Shopping orders
+
+Booking confirmations
+
+Traditional gallery applications organize screenshots only by date or filename, making it difficult to retrieve important information later. Users often spend several minutes scrolling through screenshots to locate a single image.
 
 This creates a digital memory retrieval problem.
 
-## Our Solution
+💡 Our Solution
+SnapMind AI uses Artificial Intelligence to understand the meaning of screenshots instead of relying on filenames.
 
-SnapMind AI is an AI-powered screenshot intelligence system that allows users to search screenshots using natural language.
+Users can search naturally using queries like:
 
-Example searches:
+Find my UPI payment screenshot
 
-- Find my UPI payment screenshot from April
-- Show my Python error screenshot
-- Find train ticket screenshot
+Show my Python error screenshot
 
-Instead of searching by date, the system searches by meaning.
+Find train ticket
 
-## Planned Features
+Show shopping receipt
 
-- OCR Text Extraction
-- Semantic Search
-- Screenshot Categorization
-- Natural Language Query Search
-- Fast Retrieval Engine
+The system returns the most relevant screenshot along with its similarity score.
 
-## Proposed Tech Stack
+✨ Features
+OCR-based text extraction
 
+AI-powered semantic search
+
+Natural language queries
+
+Screenshot preview
+
+Similarity score
+
+Responsive modern UI
+
+FastAPI REST API
+
+Dynamic search counter
+
+Theme switching
+
+Smooth animations
+
+🛠 Tech Stack
+Frontend
+HTML5
+
+CSS3
+
+JavaScript
+
+Backend
+FastAPI
+
+Python
+
+AI / Machine Learning
+EasyOCR
+
+Sentence Transformers (all-MiniLM-L6-v2)
+
+Scikit-learn
+
+NumPy
+
+🏗 Project Architecture
+Screenshots
+      │
+      ▼
+EasyOCR
+(Text Extraction)
+      │
+      ▼
+OCR Output (JSON)
+      │
+      ▼
+Sentence Transformer
+(Text Embeddings)
+      │
+      ▼
+Cosine Similarity
+      │
+      ▼
+FastAPI Backend
+      │
+      ▼
+Frontend UI
+📂 Project Structure
+ZenithX
+│
+├── backend
+│   ├── app.py
+│   └── main_pipeline.py
+│
+├── dataset
+│   ├── screenshots
+│   └── ocr_output.json
+│
+├── frontend
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   └── favicon.ico
+│
+├── requirements.txt
+└── README.md
+🚀 Development Progress
+Day 1
+Repository setup
+
+Project planning
+
+MIT License
+
+Day 2
+Dataset collection
+
+Screenshot categorization
+
+Metadata preparation
+
+Day 3
+EasyOCR integration
+
+OCR text extraction
+
+Day 4
+Text preprocessing
+
+Normalization pipeline
+
+Day 5
+Sentence Transformer integration
+
+Embedding generation
+
+Day 6
+Semantic retrieval
+
+Cosine similarity search
+
+Day 7
+End-to-end AI pipeline
+
+Day 8
+FastAPI backend
+
+Search API
+
+Day 9
+Dynamic semantic retrieval
+
+Backend integration
+
+Day 10
+Natural language query support
+
+Similarity score output
+
+Day 11
+Frontend development
+
+Backend integration
+
+UI enhancements
+
+Day 12
+Connected OCR dataset dynamically
+
+Semantic search integration
+
+Static image serving
+
+CORS configuration
+
+End-to-end testing
+
+Search debugging and optimization
+
+📊 Workflow
+User enters a search query.
+
+EasyOCR extracts text from screenshots.
+
+Text is converted into embeddings using Sentence Transformers.
+
+Cosine similarity compares the query with stored embeddings.
+
+The most relevant screenshot is returned with its similarity score.
+
+🔮 Future Improvements
+Hybrid keyword + semantic search
+
+CLIP image embeddings
+
+Voice search
+
+Mobile application
+
+Cloud synchronization
+
+Screenshot auto-categorization
+
+Better OCR preprocessing
+
+Multi-language support
+
+🎯 Project Vision
+Our vision is to transform screenshots into searchable knowledge by enabling users to retrieve important information using semantic understanding rather than manual scrolling.
+
+SnapMind AI aims to make screenshot retrieval faster, smarter, and more intuitive with the power of Artificial Intelligence.
+
+▶️ How to Run the Project
+1. Clone the repository
+git clone https://github.com/NITISH1817/ZenithX.git
+2. Move into the project
+cd ZenithX
+3. Install dependencies
+pip install -r requirements.txt
+4. Start the backend
+python3 -m uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
+5. Open another terminal and start the frontend
+cd frontend
+python3 -m http.server 5501
+6. Open in your browser
 Frontend:
-- Next.js
-- Tailwind CSS
 
-Backend:
-- FastAPI
+http://localhost:5501
+Backend API:
 
-AI/ML:
-- EasyOCR
-- Sentence Transformers
-- FAISS Vector Search
+http://localhost:8000
+Swagger Documentation:
 
-Database:
-- SQLite
+http://localhost:8000/docs
+👨‍💻 Team ZenithX
+SnapMind AI – Search Memories, Not Filenames.Yes. Since your project has evolved beyond the initial idea, your README should reflect the actual implementation rather than the original plan. Here's a polished version you can use.
 
-## Repository Structure
+📸 SnapMind AI
+Search Memories, Not Filenames
 
-(To be updated as project progresses)
+SnapMind AI is an AI-powered semantic screenshot search engine that enables users to retrieve screenshots using natural language. Instead of searching by filename or date, SnapMind AI understands the content inside screenshots using OCR and semantic similarity.
 
-## Progress Log
+👥 Team Members
+Nitish Priyan R S
 
-Day 1:
-- Repository created
-- MIT License added
-- Initial project planning completed
+Ragavarthini R
 
-More updates coming.
-### Day 2
+Kavya N
 
-- Created dataset folders
-- Collected screenshot samples for testing
-- Organized screenshots into categories
-- Added payment screenshots
-- Added travel screenshots
-- Added coding screenshots
-- Added notes screenshots
-- Added shopping screenshots
-- Created metadata.csv for dataset mapping
-- Planned OCR implementation pipeline
+📖 Problem Statement
+Modern smartphone users store hundreds or even thousands of screenshots containing valuable information such as:
 
-### Day 3 Completed
+Payment receipts
 
-- Installed EasyOCR
-- Extracted text from screenshots
-- Tested OCR on dataset
-- Documented OCR results
-- Created OCR output structure
+Train and flight tickets
 
-### Day 4 Completed
+Coding errors
 
-- Created text preprocessing module
-- Implemented lowercase normalization
-- Implemented whitespace cleanup
-- Tested preprocessing on OCR output
-- Documented preprocessing workflow
+Class notes
 
-### Day 5 Completed
+Shopping orders
 
-- Installed Sentence Transformers
-- Generated semantic embeddings
-- Tested similarity scoring
-- Created embeddings documentation
-- Began semantic search foundation
+Booking confirmations
 
-### Day 6 Completed
+Traditional gallery applications organize screenshots only by date or filename, making it difficult to retrieve important information later. Users often spend several minutes scrolling through screenshots to locate a single image.
 
-- Created semantic retrieval module
-- Generated embeddings for screenshot corpus
-- Implemented cosine similarity search
-- Tested multiple natural language queries
-- Documented retrieval results
+This creates a digital memory retrieval problem.
 
+💡 Our Solution
+SnapMind AI uses Artificial Intelligence to understand the meaning of screenshots instead of relying on filenames.
 
+Users can search naturally using queries like:
 
-### Day 7 Completed
+Find my UPI payment screenshot
 
-- Created integrated processing pipeline
-- Connected OCR with preprocessing module
-- Connected preprocessing with embedding generation
-- Built end-to-end screenshot processing workflow
-- Tested complete pipeline using sample screenshots
-- Documented system pipeline
-  
-### Day 8 Completed
+Show my Python error screenshot
 
-- Created FastAPI backend service
-- Built backend test endpoint
-- Created search API endpoint
-- Connected backend structure for retrieval system
-- Documented API endpoints
+Find train ticket
 
+Show shopping receipt
 
-### Day 9 Completed
+The system returns the most relevant screenshot along with its similarity score.
 
-- Connected backend API with semantic retrieval engine
-- Implemented dynamic semantic search
-- Removed hardcoded search response
-- Tested multiple search queries
-- Documented backend search testing
+✨ Features
+OCR-based text extraction
 
-### Day 10 Completed
+AI-powered semantic search
 
-- Added dynamic search query input
-- Tested multiple natural language searches
-- Added similarity score output
-- Improved search API usability
-- Documented API usage
+Natural language queries
 
-### Day 11 Completed
+Screenshot preview
 
-- Created frontend structure
-- Built search interface
-- Added UI styling
-- Connected frontend with backend API
-- Tested end-to-end search workflow
-# Day 12 – Semantic Search Integration
+Similarity score
 
-## Overview
+Responsive modern UI
 
-On Day 12, the focus was on integrating semantic search into SnapMind AI by connecting OCR-generated text with the FastAPI backend. The goal was to enable users to search screenshots using natural language queries instead of manually browsing through folders.
+FastAPI REST API
 
----
+Dynamic search counter
 
-## Work Completed
+Theme switching
 
-- Integrated OCR output (`ocr_output.json`) into the backend.
-- Loaded OCR text dynamically instead of using hardcoded screenshot data.
-- Generated text embeddings using the `all-MiniLM-L6-v2` Sentence Transformer model.
-- Implemented semantic search using cosine similarity.
-- Added a similarity threshold to filter out irrelevant search results.
-- Configured FastAPI to serve screenshot images using `StaticFiles`.
-- Enabled CORS to allow communication between the frontend and backend.
-- Connected the frontend search interface with the FastAPI search API.
-- Added debugging logs to display the search query, best match, and similarity score.
-- Tested search functionality across multiple screenshot categories such as Payments, Shopping, Coding, Notes, and Travel.
+Smooth animations
 
----
+🛠 Tech Stack
+Frontend
+HTML5
 
-## Technologies Used
+CSS3
 
-- Python
-- FastAPI
-- EasyOCR
-- Sentence Transformers
-- Scikit-learn
-- NumPy
-- HTML
-- CSS
-- JavaScript
+JavaScript
 
----
+Backend
+FastAPI
 
-## Files Updated
+Python
 
-- `backend/app.py`
-- `backend/main_pipeline.py`
-- `frontend/script.js`
-- `dataset/ocr_output.json`
+AI / Machine Learning
+EasyOCR
 
----
+Sentence Transformers (all-MiniLM-L6-v2)
 
-## Outcome
+Scikit-learn
 
-- Successfully integrated semantic search with the OCR dataset.
-- Enabled AI-based screenshot retrieval through a REST API.
-- Improved backend architecture by dynamically loading OCR data.
-- Identified OCR-related limitations and planned future improvements using hybrid keyword and semantic search.
+NumPy
 
----
+🏗 Project Architecture
+Screenshots
+      │
+      ▼
+EasyOCR
+(Text Extraction)
+      │
+      ▼
+OCR Output (JSON)
+      │
+      ▼
+Sentence Transformer
+(Text Embeddings)
+      │
+      ▼
+Cosine Similarity
+      │
+      ▼
+FastAPI Backend
+      │
+      ▼
+Frontend UI
+📂 Project Structure
+ZenithX
+│
+├── backend
+│   ├── app.py
+│   └── main_pipeline.py
+│
+├── dataset
+│   ├── screenshots
+│   └── ocr_output.json
+│
+├── frontend
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   └── favicon.ico
+│
+├── requirements.txt
+└── README.md
+🚀 Development Progress
+Day 1
+Repository setup
 
-## Future Improvements
+Project planning
 
-- Improve OCR preprocessing for better text accuracy.
-- Implement hybrid keyword and semantic search.
-- Add image embeddings using CLIP.
-- Enhance search accuracy for numeric queries.
- ---
-- ## Project Vision
+MIT License
 
-We are building an AI-powered system that helps users retrieve important information trapped inside screenshots by understanding semantic meaning instead of relying on manual scrolling.
+Day 2
+Dataset collection
+
+Screenshot categorization
+
+Metadata preparation
+
+Day 3
+EasyOCR integration
+
+OCR text extraction
+
+Day 4
+Text preprocessing
+
+Normalization pipeline
+
+Day 5
+Sentence Transformer integration
+
+Embedding generation
+
+Day 6
+Semantic retrieval
+
+Cosine similarity search
+
+Day 7
+End-to-end AI pipeline
+
+Day 8
+FastAPI backend
+
+Search API
+
+Day 9
+Dynamic semantic retrieval
+
+Backend integration
+
+Day 10
+Natural language query support
+
+Similarity score output
+
+Day 11
+Frontend development
+
+Backend integration
+
+UI enhancements
+
+Day 12
+Connected OCR dataset dynamically
+
+Semantic search integration
+
+Static image serving
+
+CORS configuration
+
+End-to-end testing
+
+Search debugging and optimization
+
+📊 Workflow
+User enters a search query.
+
+EasyOCR extracts text from screenshots.
+
+Text is converted into embeddings using Sentence Transformers.
+
+Cosine similarity compares the query with stored embeddings.
+
+The most relevant screenshot is returned with its similarity score.
+
+🔮 Future Improvements
+Hybrid keyword + semantic search
+
+CLIP image embeddings
+
+Voice search
+
+Mobile application
+
+Cloud synchronization
+
+Screenshot auto-categorization
+
+Better OCR preprocessing
+
+Multi-language support
+
+🎯 Project Vision
+Our vision is to transform screenshots into searchable knowledge by enabling users to retrieve important information using semantic understanding rather than manual scrolling.
+
+SnapMind AI aims to make screenshot retrieval faster, smarter, and more intuitive with the power of Artificial Intelligence.
+
+▶️ How to Run the Project
+1. Clone the repository
+git clone https://github.com/NITISH1817/ZenithX.git
+2. Move into the project
+cd ZenithX
+3. Install dependencies
+pip install -r requirements.txt
+4. Start the backend
+python3 -m uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
+5. Open another terminal and start the frontend
+cd frontend
+python3 -m http.server 5501
+6. Open in your browser
+Frontend:
+
+http://localhost:5501
+Backend API:
+
+http://localhost:8000
+Swagger Documentation:
+
+http://localhost:8000/docs
+👨‍💻 Team ZenithX
+SnapMind AI – Search Memories, Not Filenames.
